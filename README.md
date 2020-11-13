@@ -1,2 +1,0 @@
-# Algorithm
-# c++, python algorithm
