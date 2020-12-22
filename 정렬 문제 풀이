@@ -1,0 +1,40 @@
+#위에서 아래로
+n = int(input())
+
+array = []
+for i in range(n):
+  array.append(int(input()))
+
+array = sorted(array,reverse=True)
+
+for i in array:
+  print(i, end= ' ')
+  
+#성적이 낮은 순으로 출력하기
+n = int(input())
+
+array = []
+for i in range(n):
+ input_data = input().split()
+ array.append((input_data[0],int(input_data[1])))
+
+array = sorted(array, key=lambda student:student[1])
+
+for student in array:
+  print(student[0],end=' ')
+  
+#두 배열 원소 교체
+n, k = map(int,input().split())
+array_a = list(map(int,input().split()))
+array_b = list(map(int,input().split()))
+
+sorted_array_a = sorted(array_a)
+sorted_array_b = sorted(array_b,reverse=True)
+
+for i in range(k):
+  if sorted_array_a[i] < sorted_array_b[i]:
+    sorted_array_a[i], sorted_array_b[i] = sorted_array_b[i], sorted_array_a[i]
+  else:
+    break
+
+print(sum(sorted_array_a))
