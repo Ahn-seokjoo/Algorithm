@@ -1,0 +1,16 @@
+n = int(input())
+array = list(map(int,input().split()))
+#dp 테이블 선언
+d = [0]*100
+
+d[0] = array[0]
+d[1] = max(array[0],array[1])
+#바텀 업 프로그래밍
+for i in range(2,n):
+  # d에 현재까지 가장 많이 얻을 수 있는 값을 저장 했으므로
+  # d[i-1과] , d[i-2] + array[i] 을 비교(이는 이때까지의 값+현재 값 더한 것)하여
+  # 둘중 더 큰 값을 저장한다. 
+  d[i] = max(d[i-1],d[i-2]+array[i]) 
+  print(d[i])
+#0부터 시작이기 때문에 n-1을 출력
+print(d[n-1])
