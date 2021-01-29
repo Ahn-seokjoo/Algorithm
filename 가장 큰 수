@@ -1,0 +1,9 @@
+numbers = [3,30,34,5,9]
+
+numbers = list(map(str, numbers))
+numbers.sort(key=lambda x: x*3, reverse=True)
+
+return (str(int(''.join(numbers))))
+
+#정렬을 이용해 가장 큰수를 만듦.
+#이문제를 풀지 못해 답을 봤고, 문자열 비교시에 숫자 크기가 아닌 아스키 코드를 통해 인덱스 비교를 한다는 것을 알게됨.
