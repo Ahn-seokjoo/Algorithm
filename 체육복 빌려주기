@@ -1,0 +1,38 @@
+def solution(n, lost, reserve):
+    answer = n - len(lost)
+    for i in lost:  
+        witch = 0
+        for j in reserve:
+            if(i == j):
+                reserve.remove(j)
+                reserve.insert(witch,32)
+                lost.remove(i)
+                lost.insert(witch,32)
+                answer += 1
+                witch += 1
+                break;
+
+    for i in lost:
+        for j in reserve:
+            if((i+1) == j or (i-1) == j):
+                answer += 1
+                reserve.remove(j)
+                break;
+
+    return answer
+    
+    # 나는 2중 포문을 두번을 써서 실행속도가 매우 느리고, 코드가 길어 졌으나
+    # 다른 사람의 풀이는 한번만 쓰면서도 if문을 for문안에 배치하여 간결하게 만들어 냈다. 
+    # 참고하여 공부해봐야 함
+    
+    def solution(n, lost, reserve):
+    _reserve = [r for r in reserve if r not in lost]
+    _lost = [l for l in lost if l not in reserve]
+    for r in _reserve:
+        f = r - 1
+        b = r + 1
+        if f in _lost:
+            _lost.remove(f)
+        elif b in _lost:
+            _lost.remove(b)
+    return n - len(_lost)
