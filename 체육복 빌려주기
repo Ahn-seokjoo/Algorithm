@@ -5,7 +5,7 @@ def solution(n, lost, reserve):
         for j in reserve:
             if(i == j):
                 reserve.remove(j)
-                reserve.insert(witch,32)
+                reserve.insert(witch,32) #최대 학생수가 30명 이하이기 때문에 삭제한 위치에 32를 넣어주어 +1, -1시에도 들어가지 않게 함 
                 lost.remove(i)
                 lost.insert(witch,32)
                 answer += 1
