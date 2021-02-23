@@ -1,0 +1,26 @@
+data = input()
+
+count0 = 0
+count1 = 0
+#전체 1로 바꾸거나, 전체 0으로 바꾸는 
+#횟수중 더 적은 것을 선택
+
+#첫 원소 먼저 더해주고
+if data[0] == '1':
+  count0 += 1
+else:
+  count1 += 1
+
+for i in range(len(data)-1):
+  #앞과 뒤가 다를 때
+  if data[i] != data[i+1]:
+    #다음에 1로 바뀐다면
+    if data[i+1] == '1':
+      count0 += 1
+      print("count0 = ",count0)
+    #다음에 0으로 바뀐다면 
+    else:
+      count1 += 1
+      print("count1 = ",count1)
+
+print(min(count0,count1))
