@@ -48,3 +48,15 @@ while True:
 
 result +=(n-1)
 print(result)
+
+### 이후에 다시 풀어봄 ###
+n , k = map(int,input().split())
+count = 0
+
+count += n % k
+n -= count
+while(n != 1):
+  n //= k
+  count += 1
+print(count)
+# 어차피 1씩 뺀다면, 나눈 나머지 값을 count에 더해주고, 배수로 만들어 나눈횟수를 더해준다
