@@ -43,5 +43,18 @@ for i in x:
     print('yes',end= ' ')
   else:
     print('no',end=' ')
-  
+ 
+ //이런 식으로 푼다면, 최악의 경우 200만번의 연산을 해야할 수도 있다.
+ 
+ n = int(input())
+array_a = list(map(int,input().split()))
+
+m = int(input())
+array_b = list(map(int,input().split()))
+
+for i in range(len(array_b)):
+  if array_b[i] in array_a:
+    print("yes",end=' ')
+  else:
+    print("no",end=' ')
  
