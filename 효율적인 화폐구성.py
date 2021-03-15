@@ -9,10 +9,11 @@ d = [10001] * (m+1)
 d[0] = 0
 for i in range(n):
   for j in range(array[i], m+1):
-    d[j] = min(d[j],d[j-array[i]]+1)#j = 금액, array[i]는 단위
+    if d[j - array[i]] != 10001:
+      d[j] = min(d[j],d[j-array[i]]+1)#j = 금액, array[i]는 단위
     #금액에서 단위를 뺀 값에서 최소를 d[j]에 대입
 
 if d[m] == 10001:
-  print(-1)
+  print(-1) # m원 못만든다면
 else:
   print(d[m])
