@@ -23,3 +23,4 @@ class Solution {
         return answer;
     }
 }
+# 0번을 쓸 경우 맨끝에 요소를 안쓰고, 0번을 안 쓸 경우 끝까지 for문 돌리기
