@@ -1,11 +1,11 @@
-n = input()
+n = int(input())
 data = list(map(int,input().split()))
 data.sort()
 
 target = 1
 for x in data:
-  #못 만들면 종료
-  if target < x :
+  if target < x:
     break
   target += x
-  print(target)
+
+print(target)
