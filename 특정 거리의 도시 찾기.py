@@ -1,17 +1,17 @@
 from collections import deque
 
 n,m,k,x = map(int,input().split())
+graph = [[] for _ in range(n+1)]
 
-graph =[[] for _ in range(n+1)]
-
-for i in range(1,m+1):
+for _ in range(m):
   a,b = map(int,input().split())
   graph[a].append(b)
 
 distance = [-1] * (n+1)
-distance[x] = 0
+distance[x] = 0 #출발 도시 거리 0
 
 q = deque([x])
+
 while q:
   now = q.popleft()
   for next_node in graph[now]:
@@ -26,4 +26,4 @@ for i in range(1,n+1):
     check = True
 
 if check == False:
-  print(-1) 
+  print(-1)
