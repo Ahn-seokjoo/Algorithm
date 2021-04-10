@@ -1,10 +1,10 @@
 n = int(input())
-students = []
+
+array = []
 for _ in range(n):
-  students.append(input().split())
+  input_data = input().split()
+  array.append((input_data[0],int(input_data[1]),int(input_data[2]),int(input_data[3])))
 
-students.sort(key=lambda x:(-int(x[1]),int(x[2]),-int(x[3]),x[0]))
-#내림차순은 -를 넣어주면 된다..!!
-
-for student in students:
-  print(student[0])
+array.sort(key=lambda x: (-x[1],x[2],-x[3],x[0]))
+for i in array:
+  print(i[0])
