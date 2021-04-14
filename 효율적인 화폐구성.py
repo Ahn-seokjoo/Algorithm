@@ -1,19 +1,18 @@
-n, m = map(int,input().split())
+n,m = map(int,input().split())
 array = []
-for i in range(n):
+for _ in range(n):
   array.append(int(input()))
-#특정 값을 만들지 못한다면 10001
 d = [10001] * (m+1)
-#0원은 만들수 없으니 0
-#바텀 업 방식
+
 d[0] = 0
+
 for i in range(n):
-  for j in range(array[i], m+1):
-    if d[j - array[i]] != 10001:
-      d[j] = min(d[j],d[j-array[i]]+1)#j = 금액, array[i]는 단위
-    #금액에서 단위를 뺀 값에서 최소를 d[j]에 대입
+  for j in range(array[i],m+1):
+    if d[j-array[i]] != 10001:
+      d[j] = min(d[j],d[j-array[i]]+1)
 
 if d[m] == 10001:
-  print(-1) # m원 못만든다면
+  print(-1)
 else:
   print(d[m])
+  
