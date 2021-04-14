@@ -1,17 +1,9 @@
-#2회차
 n = int(input())
-array = list(map(int,input().split()))
-#dp 테이블 선언
-d = [0]*100 # n = 3~100사이
+data = list(map(int,input().split()))
+d = [0] * (100)
+d[0] = data[0]
+d[1] = max(data[1],data[0])
 
-d[0] = array[0]
-d[1] = max(array[0],array[1])
-#바텀 업 프로그래밍
 for i in range(2,n):
-  # d에 현재까지 가장 많이 얻을 수 있는 값을 저장 했으므로
-  # d[i-1과] , d[i-2] + array[i] 을 비교(이는 이때까지의 값+현재 값 더한 것)하여
-  # 둘중 더 큰 값을 저장한다. 
-  d[i] = max(d[i-1],d[i-2]+array[i]) #i-3 이하의 식량 창고에 대해서는 고려할 필요 x 한칸 이상 떨어지면 항상 털기 가능 
-  print(d[i])
-#0부터 시작이기 때문에 n-1을 출력
+  d[i] = max(d[i-1],d[i-2]+data[i]) #dp 테이블을 계속해서 갱신
 print(d[n-1])
