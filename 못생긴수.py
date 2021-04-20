@@ -2,14 +2,14 @@ n = int(input())
 
 ugly = [0] * n
 ugly[0] = 1
-
+#2배 3배 5배를 위한 인덱스
 i2 = i3 = i5 = 0
+#처음에 곱셈값을 초기화
+next2, next3, next5 = 2,3,5
 
-next2, next3, next5 = 2, 3, 5
-
+#1부터 n까지의 못생긴 수 찾기
 for l in range(1,n):
   ugly[l] = min(next2,next3,next5)
-
   if ugly[l] == next2:
     i2 += 1
     next2 = ugly[i2] * 2
@@ -19,5 +19,4 @@ for l in range(1,n):
   if ugly[l] == next5:
     i5 += 1
     next5 = ugly[i5] * 5
-
-print(ugly[n-1])
+print(ugly[n -1])
